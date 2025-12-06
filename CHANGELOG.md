@@ -1,4 +1,4 @@
-## 6.0.0 / 2025-01-XX
+## 7.0.0 / 2025-12-06
 
 ### Modernization
 
@@ -15,6 +15,10 @@
 
 - **ESM-only**: This package now only supports ESM. CommonJS imports are no longer supported.
 - **Node.js requirement**: Requires Node.js >= 25.0.0
+
+## 6.0.0 / 2024-06-24
+
+Add hybrid cjs and esm support
 
 ## 5.0.0 / 2022-02-17
 

@@ -1,6 +1,6 @@
 import tape from 'tape'
 
-import base58 from '../src/esm/index.js'
+import base58, { encode, decode } from '../src/esm/index.js'
 
 import fixtures from './fixtures.json' with { type: 'json' }
 
@@ -19,10 +19,22 @@ interface Fixtures {
     invalid: InvalidFixture[]
 }
 
-const { encode, decode } = base58
 const { valid, invalid } = fixtures as Fixtures
 
 tape('base58', (t) => {
+    tape('named exports', (t) => {
+        t.ok(typeof encode === 'function', 'encode is exported as a function')
+        t.ok(typeof decode === 'function', 'decode is exported as a function')
+        t.end()
+    })
+
+    tape('default export', (t) => {
+        t.ok(base58, 'default export exists')
+        t.ok(typeof base58.encode === 'function', 'default export has encode method')
+        t.ok(typeof base58.decode === 'function', 'default export has decode method')
+        t.end()
+    })
+
     tape('encode', (t) => {
         valid.forEach((f) => {
             tape('can encode ' + f.hex, (t) => {

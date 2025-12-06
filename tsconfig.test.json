@@ -2,9 +2,7 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "module": "ESNext",
-        "moduleResolution": "Node",
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
+        "moduleResolution": "bundler",
         "noEmit": true
     },
     "include": ["test/**/*.ts", "ts_src/**/*.ts"]

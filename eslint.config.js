@@ -25,10 +25,10 @@ export default [
     prettierConfig,
     ...tseslint.configs.strictTypeChecked.map((config) => ({
         ...config,
-        files: ['**/*.{ts,tsx}'],
+        files: ['ts_src/**/*.ts'],
     })),
     {
-        files: ['**/*.{ts,tsx}'],
+        files: ['ts_src/**/*.ts'],
         plugins: {
             '@typescript-eslint': tseslint.plugin,
             import: importPlugin,
@@ -42,7 +42,7 @@ export default [
                 ...globals.es2021,
             },
             parserOptions: {
-                project: ['./tsconfig.base.json', './tsconfig.test.json'],
+                project: ['./tsconfig.base.json', './tsconfig.json'],
                 tsconfigRootDir: import.meta.dirname,
             },
         },
@@ -76,6 +76,27 @@ export default [
                     max: 15,
                 },
             ],
+        },
+    },
+    {
+        files: ['test/**/*.ts'],
+        ...tseslint.configs.recommended[0],
+        plugins: {
+            '@typescript-eslint': tseslint.plugin,
+            prettier,
+        },
+        languageOptions: {
+            parser: tseslint.parser,
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            globals: {
+                ...globals.node,
+                ...globals.es2021,
+            },
+        },
+        rules: {
+            'prettier/prettier': 'error',
+            '@typescript-eslint/unbound-method': 'off',
         },
     },
     {
@@ -120,12 +141,6 @@ export default [
                     max: 15,
                 },
             ],
-        },
-    },
-    {
-        files: ['test/**/*.ts'],
-        rules: {
-            '@typescript-eslint/unbound-method': 'off',
         },
     },
     {

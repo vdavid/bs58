@@ -12,4 +12,21 @@ const ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
  */
 const bs58 = basex(ALPHABET)
 
+/**
+ * Encodes a Uint8Array, Buffer, or Array to a base58 string.
+ *
+ * @param input - The binary data to encode
+ * @returns The base58 encoded string
+ */
+export const encode: typeof bs58.encode = (input) => bs58.encode(input)
+
+/**
+ * Decodes a base58 string to a Uint8Array.
+ *
+ * @param input - The base58 encoded string to decode
+ * @returns The decoded binary data as a Uint8Array
+ * @throws {Error} If the input contains invalid base58 characters
+ */
+export const decode: typeof bs58.decode = (input) => bs58.decode(input)
+
 export default bs58

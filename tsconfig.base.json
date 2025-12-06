@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
-        "target": "ES5",
-        "module": "commonjs",
+        "target": "ES2022",
+        "module": "ESNext",
+        "lib": ["ES2022"],
         "outDir": "./src",
         "rootDir": "./ts_src",
         "types": ["node"],
         "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
         "allowJs": false,
         "strict": true,
         "noImplicitAny": true,
@@ -16,9 +19,15 @@
         "noImplicitThis": true,
         "alwaysStrict": true,
         "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true
     },
     "include": ["ts_src/**/*.ts"],
-    "exclude": ["node_modules/**/*"]
+    "exclude": ["node_modules/**/*", "src/**/*", "test/**/*"]
 }
