@@ -1,4 +1,15 @@
 import basex from 'base-x'
+
+/**
+ * Base58 alphabet used for encoding and decoding.
+ * This alphabet excludes characters that could be confused: 0 (zero), O (capital o), I (capital i), and l (lowercase L).
+ */
 const ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
-export default basex(ALPHABET)
+/**
+ * Base58 encoder/decoder instance.
+ * Provides encode and decode functions for converting between binary data and base58 strings.
+ */
+const bs58 = basex(ALPHABET)
+
+export default bs58

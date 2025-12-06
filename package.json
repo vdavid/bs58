@@ -1,59 +1,71 @@
 {
-  "name": "bs58",
-  "version": "6.0.0",
-  "type": "module",
-  "description": "Base 58 encoding / decoding",
-  "keywords": [
-    "base58",
-    "bitcoin",
-    "crypto",
-    "crytography",
-    "decode",
-    "decoding",
-    "encode",
-    "encoding",
-    "litecoin"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^20.14.8",
-    "rimraf": "^5.0.7",
-    "tape": "^5.3.0",
-    "ts-standard": "^12.0.2",
-    "typescript": "^5.5.2"
-  },
-  "repository": {
-    "url": "https://github.com/cryptocoinjs/bs58",
-    "type": "git"
-  },
-  "files": [
-    "src"
-  ],
-  "main": "src/cjs/index.cjs",
-  "module": "src/esm/index.js",
-  "types": "src/cjs/index.d.ts",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./src/esm/index.d.ts",
-        "default": "./src/esm/index.js"
-      },
-      "require": {
-        "types": "./src/cjs/index.d.cts",
-        "default": "./src/cjs/index.cjs"
-      }
+    "name": "bs58",
+    "version": "6.0.0",
+    "type": "module",
+    "packageManager": "pnpm@9.15.0",
+    "description": "Base 58 encoding / decoding",
+    "keywords": [
+        "base58",
+        "bitcoin",
+        "crypto",
+        "crytography",
+        "decode",
+        "decoding",
+        "encode",
+        "encoding",
+        "litecoin"
+    ],
+    "license": "MIT",
+    "engines": {
+        "node": ">=25.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^24.10.1",
+        "@types/tape": "^5.8.1",
+        "@typescript-eslint/eslint-plugin": "^8.48.1",
+        "@typescript-eslint/parser": "^8.48.1",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-prettier": "^5.5.4",
+        "prettier": "^3.7.4",
+        "rimraf": "^6.1.2",
+        "tape": "^5.9.0",
+        "ts-standard": "^12.0.2",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.48.1"
+    },
+    "repository": {
+        "url": "https://github.com/cryptocoinjs/bs58",
+        "type": "git"
+    },
+    "files": [
+        "src"
+    ],
+    "main": "./src/esm/index.js",
+    "module": "./src/esm/index.js",
+    "types": "./src/esm/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./src/esm/index.d.ts",
+            "default": "./src/esm/index.js"
+        }
+    },
+    "scripts": {
+        "preinstall": "npx only-allow pnpm",
+        "build": "pnpm run clean && tsc -p ./tsconfig.json",
+        "clean": "rimraf src",
+        "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+        "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+        "gitdiff": "pnpm run build && git diff --exit-code",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "standard": "ts-standard --ignore src --ignore test",
+        "test": "pnpm run lint && pnpm run unit",
+        "unit": "tsx test/index.ts"
+    },
+    "dependencies": {
+        "base-x": "^5.0.1"
     }
-  },
-  "scripts": {
-    "build": "npm run clean && tsc -p ./tsconfig.json && tsc -p ./tsconfig.cjs.json",
-    "clean": "rimraf src",
-    "gitdiff": "npm run build && git diff --exit-code",
-    "postbuild": "find src/cjs -type f \\( -name \"*.js\" -o -name \"*.ts\" \\) -exec bash -c 'ext=\"${0##*.}\"; mv \"$0\" \"${0%.$ext}.c$ext\"' {} \\;",
-    "standard": "ts-standard --ignore src --ignore test",
-    "test": "npm run standard && npm run unit",
-    "unit": "tape test/index.js"
-  },
-  "dependencies": {
-    "base-x": "^5.0.0"
-  }
 }
