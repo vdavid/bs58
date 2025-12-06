@@ -1,6 +1,6 @@
 import tape from 'tape'
 
-import base58, { encode, decode } from '../src/esm/index.js'
+import base58, { encode, decode } from './index.ts'
 
 import fixtures from './fixtures.json' with { type: 'json' }
 

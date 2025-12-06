@@ -9,26 +9,18 @@ import importPlugin from 'eslint-plugin-import'
 
 export default [
     {
-        ignores: [
-            'dist',
-            'build/',
-            'node_modules/',
-            'coverage/',
-            'test/e2e-load/',
-            'scripts/',
-            'config/',
-            '*.config.js',
-            'src/',
-        ],
+        ignores: ['dist', 'build/', 'node_modules/', 'coverage/', 'scripts/', 'config/', '*.config.js', 'dist/**/*'],
     },
     js.configs.recommended,
     prettierConfig,
     ...tseslint.configs.strictTypeChecked.map((config) => ({
         ...config,
-        files: ['ts_src/**/*.ts'],
+        files: ['src/**/*.ts'],
+        ignores: ['src/**/*.test.ts'],
     })),
     {
-        files: ['ts_src/**/*.ts'],
+        files: ['src/**/*.ts'],
+        ignores: ['src/**/*.test.ts'],
         plugins: {
             '@typescript-eslint': tseslint.plugin,
             import: importPlugin,
@@ -79,7 +71,7 @@ export default [
         },
     },
     {
-        files: ['test/**/*.ts'],
+        files: ['src/**/*.test.ts'],
         ...tseslint.configs.recommended[0],
         plugins: {
             '@typescript-eslint': tseslint.plugin,

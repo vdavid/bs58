@@ -1,5 +1,5 @@
 {
-    "name": "bs58",
+    "name": "@vdavid/bs58",
     "version": "7.0.0",
     "description": "Base 58 encoding / decoding",
     "keywords": [
@@ -16,7 +16,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cryptocoinjs/bs58"
+        "url": "https://github.com/vdavid/bs58"
     },
     "type": "module",
     "packageManager": "pnpm@10.24.0",
@@ -24,28 +24,28 @@
         "node": ">=25.0.0"
     },
     "sideEffects": false,
-    "main": "./src/esm/index.js",
-    "types": "./src/esm/index.d.ts",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "types": "./src/esm/index.d.ts",
-            "import": "./src/esm/index.js",
-            "default": "./src/esm/index.js"
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
         }
     },
     "files": [
-        "src"
+        "dist"
     ],
     "scripts": {
         "preinstall": "npx only-allow pnpm",
         "build": "pnpm run clean && tsc -p ./tsconfig.json",
-        "clean": "rimraf src",
+        "clean": "rimraf dist",
         "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
         "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "test": "pnpm run lint && pnpm run unit",
-        "unit": "tsx test/index.ts",
+        "unit": "tsx src/index.test.ts",
         "typecheck": "tsc --noEmit",
         "gitdiff": "pnpm run build && git diff --exit-code"
     },

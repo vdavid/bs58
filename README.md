@@ -1,21 +1,20 @@
-# bs58
+# @vdavid/bs58
 
-[![build status](https://github.com/cryptocoinjs/bs58/workflows/Run%20Tests/badge.svg)](https://github.com/cryptocoinjs/bs58/actions)
+[![build status](https://github.com/vdavid/bs58/workflows/Run%20Tests/badge.svg)](https://github.com/vdavid/bs58/actions)
 
-TypeScript/JavaScript component to compute base 58 encoding.
-This encoding is typically used for cryptocurrencies such
+TypeScript/JavaScript component to compute base 58 encoding. This encoding is typically used for cryptocurrencies such
 as Bitcoin.
 
 **Note:** If you're looking for **base 58 check** encoding, see:
-[https://github.com/bitcoinjs/bs58check](https://github.com/bitcoinjs/bs58check), which depends upon
-the parent of this library.
+[https://github.com/bitcoinjs/bs58check](https://github.com/bitcoinjs/bs58check), which depends upon the parent of this
+library.
 
 ## Install
 
 ```bash
-pnpm add bs58
+pnpm add @vdavid/bs58
 # or
-npm install bs58
+npm install @vdavid/bs58
 ```
 
 ## Requirements
@@ -25,12 +24,12 @@ npm install bs58
 
 ## API
 
-### Default Export
+### Default export
 
 You can import the default export and use it as an object:
 
 ```js
-import bs58 from 'bs58'
+import bs58 from '@vdavid/bs58'
 
 const bytes = Uint8Array.from([
     0, 60, 23, 110, 101, 155, 234, 15, 41, 163, 233, 191, 120, 128, 193, 18, 177, 179, 27, 77, 200, 38, 38, 129, 135,
@@ -44,12 +43,12 @@ console.log(Buffer.from(decoded).toString('hex'))
 // => 003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187
 ```
 
-### Named Exports
+### Named exports
 
 You can also import `encode` and `decode` as named exports:
 
 ```js
-import { encode, decode } from 'bs58'
+import { encode, decode } from '@vdavid/bs58'
 
 const bytes = Uint8Array.from([0, 60, 23, 110, 101, 155, 234])
 const address = encode(bytes)
@@ -74,7 +73,7 @@ Encodes a `Uint8Array`, `Buffer`, or `Array` to a base58 string.
 **Example:**
 
 ```js
-import { encode } from 'bs58'
+import { encode } from '@vdavid/bs58'
 
 const bytes = Buffer.from('hello world', 'utf8')
 const encoded = encode(bytes)
@@ -96,7 +95,7 @@ Decodes a base58 string to a `Uint8Array`.
 **Example:**
 
 ```js
-import { decode } from 'bs58'
+import { decode } from '@vdavid/bs58'
 
 const address = '16UjcYNBG9GTK4uq2f7yYEbuifqCzoLMGS'
 const bytes = decode(address)
@@ -132,11 +131,11 @@ pnpm install
 
 ## Browser
 
-This package is ESM-only.
-For browser usage, use a bundler like Vite, Webpack, or Rollup that supports ESM.
+This package is ESM-only. For browser usage, use a bundler like Vite, Webpack, or Rollup that supports ESM.
 
 ## Credits
 
+- [David Veszelovszki](https://github.com/vdavid) for maintaining this package
 - [Jonathan Underwood](https://github.com/junderw) for writing the parent JS implementation
 - [Mike Hearn](https://github.com/mikehearn) for original Java implementation
 - [Stefan Thomas](https://github.com/justmoon) for porting to JavaScript

@@ -3,8 +3,8 @@
         "target": "ES2022",
         "module": "ESNext",
         "lib": ["ES2022"],
-        "outDir": "./src",
-        "rootDir": "./ts_src",
+        "outDir": "./dist",
+        "rootDir": "./src",
         "types": ["node"],
         "declaration": true,
         "declarationMap": true,
@@ -28,6 +28,6 @@
         "moduleResolution": "bundler",
         "resolveJsonModule": true
     },
-    "include": ["ts_src/**/*.ts"],
-    "exclude": ["node_modules/**/*", "src/**/*", "test/**/*"]
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules/**/*", "src/**/*.test.ts", "dist/**/*"]
 }

@@ -11,7 +11,7 @@
 - Enhanced documentation and added JSDoc comments
 - Updated CI workflows to use pnpm and Node 25
 
-### Breaking Changes
+### Breaking changes
 
 - **ESM-only**: This package now only supports ESM. CommonJS imports are no longer supported.
 - **Node.js requirement**: Requires Node.js >= 25.0.0
